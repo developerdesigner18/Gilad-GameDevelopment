@@ -129,10 +129,10 @@ const WinGame = ({ playAgain, resetGame, gameData }) => {
         <Row>
           {playAgain && (
             <button
-              classname={
+              class={
                 JSON.parse(localStorage.getItem("isDarkMode"))
-                  ? " button-playDark "
-                  : " button-playLight"
+                  ? `setDark`
+                  : `setLight`
               }
               onClick={resetGame}
               style={{ background: "#eee" }}
