@@ -1,0 +1,45 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.keyboardButtons {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+a {
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 8px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+/* a:focus {
+  border: 1px solid red;
+} */
+.Correct {
+  background: #4cc741;
+  color: #fff;
+}
+.Present {
+  background: #d6b832;
+  color: #fff;
+}
+.Absent {
+  background: #57595a;
+  color: #fff;
+}
+/* button:focus {
+  border: 1px solid red !important;
+} */
+/* #keyboard-button :active {
+  border: 1px solid red;
+} */
