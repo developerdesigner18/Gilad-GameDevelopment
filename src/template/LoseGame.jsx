@@ -36,7 +36,7 @@ const LoseGame = ({ playAgain, resetGame, gameData }) => {
               style={{ width: 200, marginBottom: 30 }}
             />
             <h2>Oops!</h2>
-            <h4 style={{ fontSize: 23 }}>
+            <h4 style={{ fontSize: 22 }}>
               {" "}
               The Word was {gameData?.solution.toUpperCase()}
             </h4>
@@ -84,27 +84,24 @@ const LoseGame = ({ playAgain, resetGame, gameData }) => {
         </Col>
       </Row>
       <div
-        className="jumbotron p-0"
         style={{
-          width: "75px",
-          margin: "0px auto",
+          textAlign: "center",
+          marginTop: 18,
+          marginBottom: 10,
         }}
       >
-        <Row>
-          {playAgain && (
-            <button
-              classname={
-                JSON.parse(localStorage.getItem("isDarkMode"))
-                  ? " button-playDark "
-                  : " button-playLight"
-              }
-              onClick={resetGame}
-              style={{ background: "#eee" }}
-            >
-              Play Again!
-            </button>
-          )}
-        </Row>
+        {playAgain && (
+          <button
+            class={
+              JSON.parse(localStorage.getItem("isDarkMode"))
+                ? `setDark`
+                : `setLight`
+            }
+            onClick={resetGame}
+          >
+            Play Again!
+          </button>
+        )}
       </div>
     </div>
   );

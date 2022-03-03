@@ -120,27 +120,24 @@ const WinGame = ({ playAgain, resetGame, gameData }) => {
         </div>
       </div>
       <div
-        className="jumbotron p-0"
         style={{
-          width: "75px",
-          margin: "0px auto",
+          textAlign: "center",
+          marginTop: 18,
+          marginBottom: 10,
         }}
       >
-        <Row>
-          {playAgain && (
-            <button
-              class={
-                JSON.parse(localStorage.getItem("isDarkMode"))
-                  ? `setDark`
-                  : `setLight`
-              }
-              onClick={resetGame}
-              style={{ background: "#eee" }}
-            >
-              Play Again!
-            </button>
-          )}
-        </Row>
+        {playAgain && (
+          <button
+            class={
+              JSON.parse(localStorage.getItem("isDarkMode"))
+                ? `setDark`
+                : `setLight`
+            }
+            onClick={resetGame}
+          >
+            Play Again!
+          </button>
+        )}
       </div>
     </div>
   );

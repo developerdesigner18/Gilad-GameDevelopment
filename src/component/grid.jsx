@@ -117,13 +117,6 @@ const Grid = ({
       ? JSON.parse(localStorage.getItem("gameData")).averageFinal
       : [];
 
-    let theme = JSON.parse(localStorage.getItem("gameData")).theme
-      ? JSON.parse(localStorage.getItem("gameData")).theme
-      : "light";
-
-    // console.log(average.push(5));
-    // let longestStreak = gameData.longestStreak;
-
     for (let index = 0; index < word.length; index++) {
       if (solution.charAt(index) === word.charAt(index)) {
         count++;
@@ -210,23 +203,13 @@ const Grid = ({
       noOfGames: noOfGames,
       average: average,
       averageFinal: averageFinal,
-      theme: theme,
     };
 
     setGameData(newGameData);
 
     localStorage.setItem("gameData", JSON.stringify(newGameData));
 
-    // let newTheme = {
-    //   ...mode,
-    //   theme: theme,
-    // };
-    // setmode(newTheme);
-    // localStorage.setItem("theme", JSON.stringify(newTheme));
-    // console.log();
     console.log(newGameData, "GameData---------------");
-    //   if (newGameData.status == "WIN")
-    //     handleMessage(`You won at ${rowIndex + 1} tries`);
   };
 
   const handleMessage = (message) => {
@@ -251,28 +234,7 @@ const Grid = ({
     let newGameData = { ...gameData, gameWords: gameWords };
     setGameData(newGameData);
   };
-  const handleKeyboardPress = (key) => {
-    console.log(key);
-  };
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      // console.log(`${e.key}------------- pressed`);
-      //     // if (e.key === "ArrowLeft") {
-      //     //   // console.log("ArrowLeft pressed");
-      //     //   setBtnText("Left Arrow pressed");
-      //     // }
-      //     // if (e.key === "ArrowRight") {
-      //     //   // console.log("ArrowRight pressed");
-      //     //   setBtnText("Right Arrow pressed");
-      //     // }
-    });
-    //   return () => {
-    //     window.removeEventListener();
-    //     // console.log("event listener removed");
-    //  };
-  }, []);
 
-  // console.log(window.onkeydown);
   const handleKeyPress = (key) => {
     console.log("key pressed", key);
     if (gameData.rowIndex > 5 || gameData.status === "WIN") {

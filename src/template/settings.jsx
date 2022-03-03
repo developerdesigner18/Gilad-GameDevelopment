@@ -63,12 +63,55 @@ const Settings = ({ toggle, darkModeButton, isDarkMode }) => {
             // border: "1px solid white",
           }}
         >
-          <Form.Check
-            type="switch"
-            id="custom-switch"
-            onChange={toggle}
-            checked={JSON.parse(localStorage.getItem("isDarkMode"))}
-          ></Form.Check>
+          <Form>
+            <Row>
+              <Col></Col>
+
+              <Col
+                style={{
+                  paddingRight: 0,
+                  paddingLeft: 6,
+                  fontSize: 20,
+                  textAlign: "left",
+                }}
+              >
+                Light
+              </Col>
+              <Col
+                style={{
+                  paddingRight: 0,
+                  paddingLeft: 0,
+                  fontSize: 20,
+                  top: 2,
+                  textAlign: "end",
+                }}
+              >
+                {" "}
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  onChange={toggle}
+                  checked={JSON.parse(localStorage.getItem("isDarkMode"))}
+                >
+                  {/* <label>Dark</label> */}
+                </Form.Check>
+              </Col>
+
+              <Col
+                style={{
+                  paddingRight: 0,
+                  paddingLeft: 0,
+                  fontSize: 20,
+                  textAlign: "left",
+                }}
+              >
+                {" "}
+                Dark
+              </Col>
+              <Col></Col>
+            </Row>
+            {/* <span>Dark</span> */}
+          </Form>
         </div>
       </div>
     </div>

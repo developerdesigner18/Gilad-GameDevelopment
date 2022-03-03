@@ -1,15 +1,27 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Col, Row, Container, Image } from "react-bootstrap";
 import "./suggestion.css";
 
 const Suggestion = ({ setSuggestionPage, gameData }) => {
-  let arr1 = ["W", "E", "A", "R", "Y"];
+  const [add, setAdd] = useState(false);
+  const [add1, setAdd1] = useState(false);
+  const [watchAdd, setWatchAdd] = useState(true);
+  const [watchAdd1, setWatchAdd1] = useState(true);
+
+  let arr1 = ["H", "O", "N", "E", "Y"];
   let arr2 = ["A", "M", "O", "N", "G"];
   let arr3 = ["M", "O", "N", "T", "H"];
 
   let navigate = useNavigate();
-
+  const handleClickLetter = () => {
+    setAdd(true);
+    setWatchAdd(false);
+  };
+  const handleClickWord = () => {
+    setAdd1(true);
+    setWatchAdd1(false);
+  };
   return (
     // <div style={{ textAlign: "center" }}>
     //
@@ -176,6 +188,28 @@ const Suggestion = ({ setSuggestionPage, gameData }) => {
             </div>
 
             <p>The letter T is not in the word in any spot.</p>
+            <hr></hr>
+            <span>Reveal 2 letters by watching 1 Video Add</span>
+            <div style={{ textAlign: "center", paddingTop: 5 }}>
+              {watchAdd && (
+                <button className="btn btn-primary" onClick={handleClickLetter}>
+                  Watch
+                </button>
+              )}
+              <br />
+              {add && gameData?.solution[2] + "," + gameData?.solution[4]}
+            </div>
+            <hr></hr>
+            <span>Reveal a word by watching 2 Video Adds</span>
+            <div style={{ textAlign: "center", paddingTop: 5 }}>
+              {watchAdd1 && (
+                <button className="btn btn-primary" onClick={handleClickWord}>
+                  Watch
+                </button>
+              )}
+              <br />
+              {add1 && gameData?.solution}
+            </div>
           </div>
         </Row>
       </div>

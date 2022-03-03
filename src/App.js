@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 
 import Grid from "./component/grid.jsx";
 import LoseGame from "./template/LoseGame";
@@ -8,7 +8,7 @@ import WinGame from "./template/winGame";
 import data from "../src/Data/wordList.json";
 import Suggestion from "./template/suggestion";
 import Settings from "./template/settings";
-import DarkModeToggle from "react-dark-mode-toggle";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
@@ -53,6 +53,11 @@ function App() {
   };
   const randomNumber = Math.floor(Math.random() * data.length);
   const tempData = data[randomNumber];
+  // -------------------------------------hint------------------------------------------------------------
+  // let tempData1 = gameData?.solution;
+  // // const randomNumber1 = Math.floor(Math.random() * tempData1.length);
+  // const saveElement = tempData1[2];
+  // console.log(tempData1[2], tempData1[3]);
   const [suggestionPage, setSuggestionPage] = useState(true);
   // console.log(location, "🔥🔥🔥");
 
