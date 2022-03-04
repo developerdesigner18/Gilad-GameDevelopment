@@ -16,24 +16,28 @@
 } */
 
 .container3Light {
-  background-color: #e7e8ee;
+  background-color: white;
   width: 340px;
   border: 2px solid #e7e8ee;
   margin: 25px auto;
   padding: 0px 25px 95px 25px;
-  box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff;
+  /* box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff; */
 
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
 .container3Dark {
-  background-color: #36394a;
+  background-color: #141f2a;
   color: white;
   width: 340px;
   border: 2px solid #36394a;
   margin: 25px auto;
   padding: 0px 25px 95px 25px;
-  box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c;
+  /* box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c; */
 
-  border-radius: 20px;
+  /* border-radius: 20px; */
+}
+.form-check-input:checked {
+  background-color: rgb(224 78 84) !important;
+  border: 1px solid rgb(224 78 84) !important;
 }

@@ -1,7 +1,8 @@
 .darkMode {
-  background-color: #36394a;
+  /* background-color: #36394a; */
+  background-color: #141f2a;
   color: white;
-  box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c;
+  /* box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c; */
   height: inherit;
 
   display: flex;
@@ -10,7 +11,7 @@
 }
 .lightMode {
   color: black;
-  background-color: #e7e8ee;
+  background-color: white;
   height: inherit;
   display: flex;
   flex-direction: column;

@@ -89,6 +89,7 @@ const Settings = ({ toggle, darkModeButton, isDarkMode }) => {
                 {" "}
                 <Form.Check
                   type="switch"
+                  style={{ backgroudColor: "red" }}
                   id="custom-switch"
                   onChange={toggle}
                   checked={JSON.parse(localStorage.getItem("isDarkMode"))}

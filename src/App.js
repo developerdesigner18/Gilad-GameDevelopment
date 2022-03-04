@@ -31,7 +31,46 @@ function App() {
       ? localStorage.getItem("isDarkMode")
       : false
   );
+  const [firstAd, setFirstAd] = useState(
+    localStorage.getItem("FirstAd") ? localStorage.getItem("FirstAd") : false
+  );
+  const [firstAdButton, setFirstAdButton] = useState(
+    localStorage.getItem("FirstAdButton")
+      ? localStorage.getItem("FirstAdButton")
+      : true
+  );
+  const [secondAd, setSecondAd] = useState(
+    localStorage.getItem("SecondAd") ? localStorage.getItem("SecondAd") : false
+  );
+  const [secondAdButton, setSecondAdButton] = useState(
+    localStorage.getItem("SecondAdButton")
+      ? localStorage.getItem("SecondAdButton")
+      : true
+  );
+  // const removeChar = (str) => {
+  //   // str[firstIndex], newStr[secondIndex];
+  // };
 
+  const watchAdvertise1 = () => {
+    console.log("click");
+    setFirstAdButton(false);
+    setFirstAd(true);
+    console.log("Character One", gameData?.characterOne, character1);
+    gameData?.characterOne.push(character1);
+  };
+
+  localStorage.setItem("FirstAdButton", firstAdButton);
+
+  localStorage.setItem("FirstAd", firstAd);
+  const watchAdvertise2 = () => {
+    console.log("click1");
+    setSecondAdButton(false);
+    setSecondAd(true);
+    // console.log("Character One", gameData?.characterOne, character1);
+    // gameData?.characterOne.push(character1);
+  };
+  localStorage.setItem("SecondAdButton", secondAdButton);
+  localStorage.setItem("SecondAd", secondAd);
   // console.log(
   //   darkMode,
   //   "📉📉📉",
@@ -53,6 +92,17 @@ function App() {
   };
   const randomNumber = Math.floor(Math.random() * data.length);
   const tempData = data[randomNumber];
+  let tempSolution = gameData?.solution;
+  const firstIndex = Math.floor(Math.random() * tempSolution?.length);
+  const charToRemove = tempSolution?.slice(firstIndex, firstIndex + 1);
+  const newtempSolution = tempSolution
+    ?.split("")
+    .filter((char) => char !== charToRemove)
+    .join("");
+  const secondIndex = Math.floor(Math.random() * newtempSolution?.length);
+  const character1 = tempSolution && tempSolution[firstIndex];
+  const character2 = newtempSolution && tempSolution[secondIndex];
+
   // -------------------------------------hint------------------------------------------------------------
   // let tempData1 = gameData?.solution;
   // // const randomNumber1 = Math.floor(Math.random() * tempData1.length);
@@ -62,6 +112,19 @@ function App() {
   // console.log(location, "🔥🔥🔥");
 
   const resetGame = () => {
+    setFirstAd(false);
+
+    localStorage.setItem("FirstAd", firstAd);
+
+    setFirstAdButton(true);
+    localStorage.setItem("FirstAdButton", firstAdButton);
+    setSecondAd(false);
+
+    localStorage.setItem("SecondAd", secondAd);
+
+    setSecondAdButton(true);
+    localStorage.setItem("SecondAdButton", secondAdButton);
+
     navigate("/");
     setPlayAgain(false);
     let newGameData = {
@@ -77,9 +140,13 @@ function App() {
       longestStreak: gameData.longestStreak,
       noOfGames: gameData.noOfGames,
       status: "IN_PROGRESS",
+      revealTwoLetter: [],
+      characterOne: [],
+      characterTwo: [],
     };
     setGameData(newGameData);
     localStorage.setItem("gameData", JSON.stringify(newGameData));
+
     // let newTheme = {
     //   ...mode,
     //   theme: mode.theme,
@@ -94,8 +161,7 @@ function App() {
   useEffect(() => {
     console.log(gameData);
     console.log("useEffect called: 👽👽👽");
-    if (gameData?.noOfGames === 0 && gameData?.rowIndex === 0)
-      navigate("/suggestion");
+
     if (gameData?.status === "IN_PROGRESS" && location.pathname == "/win") {
       navigate("/");
     }
@@ -121,6 +187,7 @@ function App() {
         noOfGames: JSON.parse(localStorage.getItem("gameData"))?.noOfGames
           ? JSON.parse(localStorage.getItem("gameData"))?.noOfGames
           : 0,
+
         rowIndex: 0,
         gameWords: [],
         gameRowStatus: [],
@@ -128,10 +195,14 @@ function App() {
         absentArray: [],
         correctArray: [],
         status: "IN_PROGRESS",
+        characterOne: [],
+        characterTwo: [],
       };
       setGameData(newGameData);
       localStorage.setItem("gameData", JSON.stringify(newGameData));
+
       // let newTheme = {
+
       // ...darkMode,
       // theme: darkMode.theme,
       // };
@@ -208,6 +279,12 @@ function App() {
               <Suggestion
                 gameData={gameData}
                 setSuggestionPage={setSuggestionPage}
+                watchAdvertise1={watchAdvertise1}
+                firstAd={firstAd}
+                firstAdButton={firstAdButton}
+                secondAd={secondAd}
+                secondAdButton={secondAdButton}
+                watchAdvertise2={watchAdvertise2}
               />
             }
           ></Route>

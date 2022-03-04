@@ -98,6 +98,8 @@ const Grid = ({
     let rowStatus = [];
     let status = gameData.status;
     let count = 0;
+    let characterOne = gameData.characterOne;
+    let characterTwo = gameData.characterTwo;
 
     let currentStreak = JSON.parse(localStorage.getItem("gameData"))
       .currentStreak
@@ -203,6 +205,8 @@ const Grid = ({
       noOfGames: noOfGames,
       average: average,
       averageFinal: averageFinal,
+      characterOne: characterOne,
+      characterTwo: characterOne,
     };
 
     setGameData(newGameData);
@@ -298,7 +302,8 @@ const Grid = ({
       ref={ref}
     >
       <div className="top">
-        <div className="title" style={{ paddingRight: 27, marginTop: -1 }}>
+        <div className="title">GUESS WORD</div>
+        <div className="title" style={{ paddingLeft: 45, marginTop: -1 }}>
           {/* <FontAwesomeIcon icon={"user-secret"} /> */}
           <i
             class="fa-regular fa-circle-question"
@@ -307,9 +312,8 @@ const Grid = ({
             }}
           ></i>
         </div>
-        <div className="title">GUESS WORD</div>
         {"  "}
-        <div className="title" style={{ paddingLeft: 27, marginTop: -1 }}>
+        <div className="title" style={{ paddingLeft: 17, marginTop: -1 }}>
           <i
             class="fa-solid fa-gear"
             onClick={() => {

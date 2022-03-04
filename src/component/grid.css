@@ -5,7 +5,8 @@
   justify-content: space-between;
   color: black;
   align-items: center;
-  background-color: #e7e8ee;
+  /* background-color: #e7e8ee; */
+  background-color: white;
   height: inherit;
 }
 .containerGridDark {
@@ -15,7 +16,8 @@
   justify-content: space-between;
 
   align-items: center;
-  background-color: #36394a;
+  /* background-color: #36394a; */
+  background-color: #141f2a;
   color: white;
   height: inherit;
 }
@@ -75,8 +77,8 @@ i {
   letter-spacing: 0;
   background-color: #36394a;
   color: white;
-  /* box-shadow: 0.2em 0.2em 0.4em #333131, -0.2em -0.2em 0.4em rgb(32, 31, 31);  */
-  box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c;
+
+  /* box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c; */
 }
 .letterLight {
   text-transform: uppercase;
@@ -93,7 +95,7 @@ i {
   margin: 2px;
   letter-spacing: 0;
   /* box-shadow: 0.2em 0.2em 0.4em #333131, -0.2em -0.2em 0.4em rgb(32, 31, 31);  */
-  box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff;
+  /* box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff; */
 }
 
 .keyboard {
@@ -135,17 +137,20 @@ i {
   color: #fff;
 }
 .setLight {
-  box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff;
-  background-color: #e7e8ee;
-  border: 2px solid #e7e8ee;
+  /* box-shadow: 0.2em 0.2em 0.4em #a3a7bd, -0.2em -0.2em 0.4em #fff; */
+  background-color: white;
+  padding: 5px;
+
+  /* border: 2px solid #e7e8ee; */
 }
 .setDark {
-  background-color: #36394a;
-  border: 2px solid #36394a;
-  box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c;
-
+  background-color: #141f2a;
+  /* border: 2px solid #36394a; */
+  /* box-shadow: 0.2em 0.2em 0.4em #252834, -0.2em -0.2em 0.4em #43475c; */
+  padding: 5px;
   color: white;
 }
+
 /* .holder {
   position: relative; */
 /* height: 550px; */

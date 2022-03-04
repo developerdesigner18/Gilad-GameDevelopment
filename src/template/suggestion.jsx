@@ -1,9 +1,16 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Col, Row, Container, Image } from "react-bootstrap";
 import "./suggestion.css";
 
-const Suggestion = ({ setSuggestionPage, gameData }) => {
+const Suggestion = ({
+  setSuggestionPage,
+  gameData,
+  watchAdvertise1,
+  watchAdvertise2,
+  addv,
+  addButton,
+}) => {
   const [add, setAdd] = useState(false);
   const [add1, setAdd1] = useState(false);
   const [watchAdd, setWatchAdd] = useState(true);
@@ -14,10 +21,13 @@ const Suggestion = ({ setSuggestionPage, gameData }) => {
   let arr3 = ["M", "O", "N", "T", "H"];
 
   let navigate = useNavigate();
-  const handleClickLetter = () => {
-    setAdd(true);
-    setWatchAdd(false);
-  };
+  // const handleClickLetter = () => {
+  //   (prev) => !prev;
+  //   JSON.parse(localStorage.setItem("Ads", addv));
+  //   setWatchAdd(false);
+  // };
+  useEffect(() => {}, []);
+
   const handleClickWord = () => {
     setAdd1(true);
     setWatchAdd1(false);
@@ -33,23 +43,6 @@ const Suggestion = ({ setSuggestionPage, gameData }) => {
           : `container4Light`
       }
     >
-      <div style={{ textAlign: "end" }}>
-        <span
-          className="close1"
-          style={{
-            marginRight: 15,
-            fontSize: 30,
-
-            boxShadow: "none",
-          }}
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <i class="fa-regular fa-circle-xmark"></i>
-        </span>
-      </div>
-
       <div style={{ margin: 0, padding: 0 }}>
         <div
           style={{
@@ -65,13 +58,28 @@ const Suggestion = ({ setSuggestionPage, gameData }) => {
           <p>
             {" "}
             Guess the <b>WORD</b> in six tries
+            <span
+              className="close1"
+              style={{
+                marginLeft: 85,
+                fontSize: 30,
+
+                boxShadow: "none",
+              }}
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              <i class="fa-regular fa-circle-xmark"></i>
+            </span>
           </p>
+
           <p>
             Each guess must be a valid five-letter word. Hit the enter button to
             submit
           </p>
           <p>
-            After each guess, the color of the circle will change to show hoe
+            After each guess, the color of the circle will change to show how
             close your guess was to word.
           </p>
         </div>
@@ -123,7 +131,7 @@ const Suggestion = ({ setSuggestionPage, gameData }) => {
               ))}
             </div>
 
-            <p>The letter W is in the word and in correct spot.</p>
+            <p>The letter H is in the word and in correct spot.</p>
             <div
               style={{ marginTop: 20, flexDirection: "row", marginBottom: 10 }}
             >
@@ -189,26 +197,66 @@ const Suggestion = ({ setSuggestionPage, gameData }) => {
 
             <p>The letter T is not in the word in any spot.</p>
             <hr></hr>
-            <span>Reveal 2 letters by watching 1 Video Add</span>
-            <div style={{ textAlign: "center", paddingTop: 5 }}>
-              {watchAdd && (
-                <button className="btn btn-primary" onClick={handleClickLetter}>
-                  Watch
-                </button>
+            <h5>Hint </h5>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginRight: 10,
+              }}
+            >
+              Reveal 2 letters by watching a video
+              {JSON.parse(localStorage.getItem("FirstAdButton")) && (
+                <>
+                  {console.log("Hello!")}
+                  <i
+                    className="fa-solid fa-circle-play"
+                    style={{ color: "rgb(224 78 84)", marginLeft: 30 }}
+                    onClick={watchAdvertise1}
+                  ></i>
+                </>
               )}
-              <br />
-              {add && gameData?.solution[2] + "," + gameData?.solution[4]}
             </div>
-            <hr></hr>
-            <span>Reveal a word by watching 2 Video Adds</span>
-            <div style={{ textAlign: "center", paddingTop: 5 }}>
-              {watchAdd1 && (
-                <button className="btn btn-primary" onClick={handleClickWord}>
-                  Watch
-                </button>
-              )}
-              <br />
-              {add1 && gameData?.solution}
+            <div style={{ textAlign: "center", paddingBottom: 10 }}>
+              {JSON.parse(localStorage.getItem("FirstAd")) &&
+                gameData?.solution[2] + " ," + gameData?.solution[4]}
+            </div>
+
+            {/* {
+              const firstLetter = Math.floor(Math.random() * gameData?.solution.length);
+
+              gameData?.solution[
+                firstLetter
+              ] +
+                "," +
+                gameData?.solution.slice(gameData?.solution.indexOf(firstLetter), gameData?.solution.indexOf(firstLetter) + 1)[
+                  Math.floor(Math.random() * gameData?.solution.slice(gameData?.solution.indexOf(firstLetter), gameData?.solution.indexOf(firstLetter) + 1).length)
+                ]} */}
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginRight: 10,
+                }}
+              >
+                Reveal word by watching 2 videos
+                {JSON.parse(localStorage.getItem("SecondAdButton")) && (
+                  <i
+                    class="fa-solid fa-circle-play"
+                    onClick={watchAdvertise2}
+                    style={{
+                      marginLeft: 30,
+
+                      color: "rgb(224 78 84)",
+                    }}
+                  ></i>
+                )}
+              </div>
+            </div>
+            <div style={{ textAlign: "center", paddingBottom: 10 }}>
+              {JSON.parse(localStorage.getItem("SecondAd")) &&
+                gameData?.solution}
             </div>
           </div>
         </Row>
