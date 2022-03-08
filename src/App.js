@@ -61,7 +61,6 @@ function App() {
   // };
 
   const watchAdvertise1 = () => {
-    console.log("click");
     setFirstAdButton(false);
     setFirstAd(true);
     // console.log("Character One", gameData?.characterOne, character1);
@@ -72,7 +71,6 @@ function App() {
 
   localStorage.setItem("FirstAd", firstAd);
   const watchAdvertise2 = () => {
-    console.log("click1");
     setSecondAdButton(false);
     setSecondAd(true);
     // console.log("Character One", gameData?.characterOne, character1);
@@ -87,15 +85,10 @@ function App() {
   // );
 
   const toggle = (e) => {
-    console.log("checked : ", e.target.checked);
     setIsDarkMode(e.target.checked);
     localStorage.setItem("isDarkMode", e.target.checked);
-    console.log(isDarkMode, "🤣🤣🤣");
   };
   const handleSwitch = (elem, state) => {
-    console.log("handleSwitch. elem:", elem);
-    console.log("name:", elem.props.name);
-    console.log("new state:", state);
     setIsDarkMode();
     localStorage.setItem("isDarkMode", state);
   };
@@ -184,9 +177,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(gameData);
-    console.log("useEffect called: 👽👽👽");
-
     if (gameData?.status === "IN_PROGRESS" && location.pathname == "/win") {
       navigate("/");
     }
@@ -231,7 +221,6 @@ function App() {
       // ...darkMode,
       // theme: darkMode.theme,
       // };
-      console.log("useEffect called if condition: 👽👽👽");
 
       // setDarkMode(true);
       // localStorage.setItem("isDarkMode", JSON.stringify(darkMode));

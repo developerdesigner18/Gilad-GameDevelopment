@@ -204,7 +204,6 @@ const Suggestion = ({
               Reveal 2 letters by watching a video
               {JSON.parse(localStorage.getItem("FirstAdButton")) && (
                 <>
-                  {console.log("Hello!")}
                   <i
                     className="fa-solid fa-circle-play"
                     style={{ color: "rgb(224 78 84)", marginLeft: 30 }}

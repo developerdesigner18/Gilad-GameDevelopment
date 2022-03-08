@@ -39,39 +39,38 @@ const Grid = ({
       e.keyCode === 8 ||
       e.keyCode === 13
     ) {
-      console.log(e.charCode, "👽👽👽👽");
+      
       setInput([...input, e.key]);
       if (gameData.rowIndex > 5 || gameData.status === "WIN") {
         return true;
       }
       if (e.key === "Enter") {
-        console.log("key");
+      
 
         if (charArray.length === 5) {
           let word = charArray.join("").toLowerCase();
           const test = data.filter((data) => {
-            console.log(data.toLowerCase(), word);
+         
             return data.toLowerCase() === word;
           });
 
           if (test.length === 0) {
             handleMessage("Not In List");
-            // console.log("not in list", word);
+            
             return;
           }
           if (test.length > 0) {
             enterGameWord(word);
             setCharArray([]);
 
-            // console.log(error, "👽👽👽👽", "true");
           }
         } else {
           handleMessage("Not Enough Letters");
-          // console.log("not enough letters");
+         
         }
         return;
       }
-      console.log(e.key, "🔥🔥🔥🔥");
+     
       if (e.key == "Backspace") {
         charArray.splice(charArray.length - 1, 1);
         setCharArray([...charArray]);
@@ -124,7 +123,7 @@ const Grid = ({
       if (solution.charAt(index) === word.charAt(index)) {
         count++;
 
-        // console.log(word.charAt(index), presentArray);
+      
         rowStatus.push("Correct");
         if (!correctArray.includes(word.charAt(index))) {
           correctArray.push(word.charAt(index));
@@ -132,7 +131,7 @@ const Grid = ({
         if (presentArray.indexOf(word.charAt(index)) !== -1) {
           presentArray.splice(presentArray.indexOf(word.charAt(index)), 1);
 
-          // console.log(presentArray);
+        
         }
       } else if (solution.includes(word.charAt(index))) {
         rowStatus.push("Present");
@@ -141,7 +140,7 @@ const Grid = ({
           !presentArray.includes(word.charAt(index))
         )
           presentArray.push(word.charAt(index));
-        console.log(presentArray);
+      
       } else {
         rowStatus.push("Absent");
         if (!absentArray.includes(word.charAt(index)))
@@ -157,7 +156,7 @@ const Grid = ({
         averageFinal?.reduce((p, c) => p + c, 0) +
         currentStreak / (averageFinal.length + 1);
 
-      console.log(temp);
+     
       average?.push(1);
 
       // if (average.length[-1] == 1 && average.length[-2] == 0)
@@ -170,7 +169,7 @@ const Grid = ({
       }, 500);
 
       // handleMessage("Winner Winner CHicken Dinnner");
-      console.log("Winner Winner Chiken Dinner");
+      
     } else if (rowIndex === 5) {
       status = "LOSE";
 
@@ -178,7 +177,7 @@ const Grid = ({
 
       // average = average.push(currentStreak);
       average.push(0);
-      console.log(average);
+      
       noOfGames++;
       currentStreak = 0;
 
@@ -187,7 +186,7 @@ const Grid = ({
       setTimeout(() => {
         navigate("/lose");
       }, 500);
-      console.log("You Lose the game");
+    
     }
     gameRowStatus.push(rowStatus);
     gameWords[rowIndex] = word;
@@ -214,7 +213,7 @@ const Grid = ({
 
     localStorage.setItem("gameData", JSON.stringify(newGameData));
 
-    console.log(newGameData, "GameData---------------");
+  
   };
 
   const handleMessage = (message) => {
@@ -228,7 +227,6 @@ const Grid = ({
   // setError(true);
   // setTimeout(() => {
   //   setError(true);
-  //   console.log(, "📉📉📉");
   // }, 1000);
 
   // };
@@ -241,7 +239,7 @@ const Grid = ({
   };
 
   const handleKeyPress = (key) => {
-    console.log("key pressed", key);
+   
     if (gameData.rowIndex > 5 || gameData.status === "WIN") {
       return true;
     }
@@ -308,7 +306,7 @@ const Grid = ({
         <div className="title" style={{ paddingLeft: 45, marginTop: -1 }}>
           {/* <FontAwesomeIcon icon={"user-secret"} /> */}
           <i
-            class="fa-regular fa-circle-question"
+            className="fa-regular fa-circle-question"
             onClick={() => {
               navigate("/suggestion");
             }}
@@ -317,7 +315,7 @@ const Grid = ({
         {"  "}
         <div className="title" style={{ paddingLeft: 17, marginTop: -1 }}>
           <i
-            class="fa-solid fa-gear"
+            className="fa-solid fa-gear"
             onClick={() => {
               navigate("/settings");
             }}
