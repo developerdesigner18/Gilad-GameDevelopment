@@ -57,11 +57,11 @@ const Suggestion = ({
         >
           <p>
             {" "}
-            Guess the <b>WORD</b> in six tries
+            In six attempts, guess the <b>WORD</b>
             <span
               className="close1"
               style={{
-                marginLeft: 85,
+                marginLeft: 55,
                 fontSize: 30,
 
                 boxShadow: "none",
@@ -75,12 +75,8 @@ const Suggestion = ({
           </p>
 
           <p>
-            Each guess must be a valid five-letter word. Hit the enter button to
-            submit
-          </p>
-          <p>
-            After each guess, the color of the circle will change to show how
-            close your guess was to word.
+            After each guess the colour of tile indicates how close the guess
+            was to the word.
           </p>
         </div>
       </div>

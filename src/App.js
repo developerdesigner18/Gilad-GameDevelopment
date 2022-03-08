@@ -6,6 +6,7 @@ import LoseGame from "./template/LoseGame";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import WinGame from "./template/winGame";
 import data from "../src/Data/wordList.json";
+
 import Suggestion from "./template/suggestion";
 import Settings from "./template/settings";
 
@@ -25,12 +26,20 @@ function App() {
       localStorage.getItem("gameData") && localStorage.getItem("gameData")
     )
   );
+  const [answer, setAnswer] = useState("");
 
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("isDarkMode")
       ? localStorage.getItem("isDarkMode")
       : false
   );
+  const [mode, setMode] = useState(
+    localStorage.getItem("Mode") ? localStorage.getItem("Mode") : "Easy"
+  );
+  // let randomNumber2 = Math.floor(Math.random() * easyWord.length);
+
+  // const [random, setRandom] = useState(easyWord[randomNumber2].toLowerCase());
+  // console.log(mode, "👽👽👽");
   const [firstAd, setFirstAd] = useState(
     localStorage.getItem("FirstAd") ? localStorage.getItem("FirstAd") : false
   );
@@ -55,8 +64,8 @@ function App() {
     console.log("click");
     setFirstAdButton(false);
     setFirstAd(true);
-    console.log("Character One", gameData?.characterOne, character1);
-    gameData?.characterOne.push(character1);
+    // console.log("Character One", gameData?.characterOne, character1);
+    // gameData?.characterOne.push(character1);
   };
 
   localStorage.setItem("FirstAdButton", firstAdButton);
@@ -90,18 +99,35 @@ function App() {
     setIsDarkMode();
     localStorage.setItem("isDarkMode", state);
   };
+  // ---------------------------------------------Mode --------------------------------------------------------------
+  // useEffect(() => {
+  //   if (localStorage.getItem("Mode") === "Easy") {
+  //     const randomNumber = Math.floor(Math.random() * easyWord.length);
+  //     setRandom(easyWord[randomNumber].toLowerCase());
+  //   } else if (localStorage.getItem("Mode") === "Medium") {
+  //     const randomNumber = Math.floor(Math.random() * mediumWord.length);
+  //     setRandom(mediumWord[randomNumber].toLowerCase());
+  //   } else if (localStorage.getItem("Mode") === "Hard") {
+  //     const randomNumber = Math.floor(Math.random() * hardWord.length);
+  //     setRandom(hardWord[randomNumber].toLowerCase());
+  //   }
+  // }, [gameData?.noOfGames, mode]);
+  // console.log(random);
+  //
+
   const randomNumber = Math.floor(Math.random() * data.length);
   const tempData = data[randomNumber];
-  let tempSolution = gameData?.solution;
-  const firstIndex = Math.floor(Math.random() * tempSolution?.length);
-  const charToRemove = tempSolution?.slice(firstIndex, firstIndex + 1);
-  const newtempSolution = tempSolution
-    ?.split("")
-    .filter((char) => char !== charToRemove)
-    .join("");
-  const secondIndex = Math.floor(Math.random() * newtempSolution?.length);
-  const character1 = tempSolution && tempSolution[firstIndex];
-  const character2 = newtempSolution && tempSolution[secondIndex];
+
+  // let tempSolution = gameData?.solution;
+  // const firstIndex = Math.floor(Math.random() * tempSolution?.length);
+  // const charToRemove = tempSolution?.slice(firstIndex, firstIndex + 1);
+  // const newtempSolution = tempSolution
+  //   ?.split("")
+  //   .filter((char) => char !== charToRemove)
+  //   .join("");
+  // const secondIndex = Math.floor(Math.random() * newtempSolution?.length);
+  // const character1 = tempSolution && tempSolution[firstIndex];
+  // const character2 = newtempSolution && tempSolution[secondIndex];
 
   // -------------------------------------hint------------------------------------------------------------
   // let tempData1 = gameData?.solution;
@@ -155,7 +181,6 @@ function App() {
     // localStorage.setItem("theme", JSON.stringify(newTheme));
 
     // console.log(mode);
-    console.log(newGameData.solution);
   };
 
   useEffect(() => {
@@ -296,6 +321,8 @@ function App() {
               toggle={toggle}
               isDarkMode={isDarkMode}
               handleSwitch={handleSwitch}
+              mode={mode}
+              setMode={setMode}
             />
           }
         ></Route>

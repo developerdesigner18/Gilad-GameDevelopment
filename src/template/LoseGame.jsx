@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container, Image } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useNavigate } from "react-router-dom";
 import "./loseGame.css";
 

@@ -162,3 +162,15 @@ i {
   left: 0;
   margin: 0px auto;
 } */
+.stickyDark {
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 0px;
+  background-color: #141f2a;
+}
+.stickyLight {
+  position: sticky;
+  bottom: 0px;
+  position: -webkit-sticky;
+  background-color: white;
+}

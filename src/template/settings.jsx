@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Col, Row, Container, Form } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Container,
+  Form,
+  ButtonGroup,
+  Button,
+} from "react-bootstrap";
 import Switch from "react-switch";
 
 // import { useNavigate } from "react-router-dom";
@@ -7,7 +14,7 @@ import Switch from "react-switch";
 import "./settings.css";
 import { useNavigate } from "react-router-dom";
 
-const Settings = ({ toggle, darkModeButton, isDarkMode }) => {
+const Settings = ({ toggle, darkModeButton, isDarkMode, mode, setMode }) => {
   console.log(!isDarkMode);
   const navigate = useNavigate();
   return (
@@ -111,9 +118,61 @@ const Settings = ({ toggle, darkModeButton, isDarkMode }) => {
               </Col>
               <Col></Col>
             </Row>
+
             {/* <span>Dark</span> */}
           </Form>
         </div>
+        {/* <div
+          className="buttonGropuForEasyAndHard text-center
+        my-2"
+        >
+          {console.log(mode)}
+          <ButtonGroup>
+            <Button
+              // className={
+              //   localStorage.getItem("Mode") === "Easy"
+              //     ? "bg-info text-dark"
+              //     : "bg-light text-dark"
+              // }
+              value="Easy"
+              onClick={(e) => {
+                setMode(e.target.value);
+                // setMode(localStorage.setItem("Mode", JSON.stringify("Medium")));
+                localStorage.setItem("Mode", e.target.value);
+              }}
+            >
+              Easy
+            </Button>
+            <Button
+              value="Medium"
+              onClick={(e) => {
+                setMode(e.target.value);
+                // setMode(localStorage.setItem("Mode", JSON.stringify("Medium")));
+                localStorage.setItem("Mode", e.target.value);
+              }}
+            >
+              Medium
+            </Button>
+            <Button
+              value="Hard"
+              onClick={(e) => {
+                setMode(e.target.value);
+                // setMode(localStorage.setItem("Mode", JSON.stringify("Medium")));
+                localStorage.setItem("Mode", e.target.value);
+              }}
+            >
+              Hard
+            </Button>
+          </ButtonGroup>
+          <br />
+          {localStorage.getItem("Mode") === "Easy"
+            ? "You are in Easy Mode"
+            : localStorage.getItem("Mode") === "Medium"
+            ? "Your are in Medium Mode"
+            : localStorage.getItem("Mode") === "Hard"
+            ? "You are in Hard Mode"
+            : ""}
+        </div> */}
       </div>
     </div>
   );

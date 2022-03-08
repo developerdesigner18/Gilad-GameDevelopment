@@ -6,14 +6,14 @@ import React, {
   useRef,
 } from "react";
 import "./grid.css";
-
-// import data1 from "../Data/data1.json";
 import data from "../Data/wordList.json";
+
 import Keyboard from "../classes/keyboard";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import WinGame from "../template/winGame";
 import LoseGame from "../template/LoseGame";
 import { useLocation, useNavigate } from "react-router-dom";
+import { StickyContainer, Sticky } from "react-sticky";
 
 const Grid = ({
   gameData,
@@ -50,7 +50,8 @@ const Grid = ({
         if (charArray.length === 5) {
           let word = charArray.join("").toLowerCase();
           const test = data.filter((data) => {
-            return data === word;
+            console.log(data.toLowerCase(), word);
+            return data.toLowerCase() === word;
           });
 
           if (test.length === 0) {
@@ -248,7 +249,7 @@ const Grid = ({
       if (charArray.length === 5) {
         let word = charArray.join("").toLowerCase();
         const test = data.filter((data) => {
-          return data === word;
+          return data.toLowerCase() === word;
         });
         // console.log(test);
         if (test.length === 0) {
@@ -303,6 +304,7 @@ const Grid = ({
     >
       <div className="top">
         <div className="title">GUESS WORD</div>
+
         <div className="title" style={{ paddingLeft: 45, marginTop: -1 }}>
           {/* <FontAwesomeIcon icon={"user-secret"} /> */}
           <i
@@ -322,7 +324,9 @@ const Grid = ({
           ></i>
         </div>
       </div>
-
+      <div>
+        <Image src="../banner.jpg" style={{ height: 155, marginTop: 10 }} />
+      </div>
       {message && (
         <div className="message" style={{ marginTop: 15, width: "250px" }}>
           {message}
@@ -363,14 +367,23 @@ const Grid = ({
           </div>
         ))}
       </div>
-
-      <div className="bottom">
+      <div>
+        <Image src="../banner.jpg" style={{ height: 155, marginTop: 10 }} />
+      </div>
+      <div
+        className={
+          JSON.parse(localStorage.getItem("isDarkMode"))
+            ? "stickyDark"
+            : "stickyLight"
+        }
+      >
         <Keyboard
           gameData={gameData}
           handleKeyPress={handleKeyPress}
 
           // handleKeyboardPress={handleKeyboardPress}
         />
+
         <div style={{ textAlign: "center", marginTop: 18, marginBottom: 10 }}>
           {playAgain && (
             <button
