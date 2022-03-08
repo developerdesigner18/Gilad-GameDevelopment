@@ -39,38 +39,32 @@ const Grid = ({
       e.keyCode === 8 ||
       e.keyCode === 13
     ) {
-      
       setInput([...input, e.key]);
       if (gameData.rowIndex > 5 || gameData.status === "WIN") {
         return true;
       }
       if (e.key === "Enter") {
-      
-
         if (charArray.length === 5) {
           let word = charArray.join("").toLowerCase();
           const test = data.filter((data) => {
-         
             return data.toLowerCase() === word;
           });
 
           if (test.length === 0) {
             handleMessage("Not In List");
-            
+
             return;
           }
           if (test.length > 0) {
             enterGameWord(word);
             setCharArray([]);
-
           }
         } else {
           handleMessage("Not Enough Letters");
-         
         }
         return;
       }
-     
+
       if (e.key == "Backspace") {
         charArray.splice(charArray.length - 1, 1);
         setCharArray([...charArray]);
@@ -123,15 +117,12 @@ const Grid = ({
       if (solution.charAt(index) === word.charAt(index)) {
         count++;
 
-      
         rowStatus.push("Correct");
         if (!correctArray.includes(word.charAt(index))) {
           correctArray.push(word.charAt(index));
         }
         if (presentArray.indexOf(word.charAt(index)) !== -1) {
           presentArray.splice(presentArray.indexOf(word.charAt(index)), 1);
-
-        
         }
       } else if (solution.includes(word.charAt(index))) {
         rowStatus.push("Present");
@@ -140,7 +131,6 @@ const Grid = ({
           !presentArray.includes(word.charAt(index))
         )
           presentArray.push(word.charAt(index));
-      
       } else {
         rowStatus.push("Absent");
         if (!absentArray.includes(word.charAt(index)))
@@ -156,7 +146,6 @@ const Grid = ({
         averageFinal?.reduce((p, c) => p + c, 0) +
         currentStreak / (averageFinal.length + 1);
 
-     
       average?.push(1);
 
       // if (average.length[-1] == 1 && average.length[-2] == 0)
@@ -169,7 +158,6 @@ const Grid = ({
       }, 500);
 
       // handleMessage("Winner Winner CHicken Dinnner");
-      
     } else if (rowIndex === 5) {
       status = "LOSE";
 
@@ -177,7 +165,7 @@ const Grid = ({
 
       // average = average.push(currentStreak);
       average.push(0);
-      
+
       noOfGames++;
       currentStreak = 0;
 
@@ -186,7 +174,6 @@ const Grid = ({
       setTimeout(() => {
         navigate("/lose");
       }, 500);
-    
     }
     gameRowStatus.push(rowStatus);
     gameWords[rowIndex] = word;
@@ -212,8 +199,6 @@ const Grid = ({
     setGameData(newGameData);
 
     localStorage.setItem("gameData", JSON.stringify(newGameData));
-
-  
   };
 
   const handleMessage = (message) => {
@@ -239,7 +224,6 @@ const Grid = ({
   };
 
   const handleKeyPress = (key) => {
-   
     if (gameData.rowIndex > 5 || gameData.status === "WIN") {
       return true;
     }
@@ -323,7 +307,7 @@ const Grid = ({
         </div>
       </div>
       <div>
-        <Image src="../banner.jpg" style={{ height: 155, marginTop: 10 }} />
+        <Image src="../banner.jpg" style={{ height: 120, marginTop: 10 }} />
       </div>
       {message && (
         <div className="message" style={{ marginTop: 15, width: "250px" }}>
@@ -366,7 +350,7 @@ const Grid = ({
         ))}
       </div>
       <div>
-        <Image src="../banner.jpg" style={{ height: 155, marginTop: 10 }} />
+        <Image src="../banner.jpg" style={{ height: 120, marginTop: 10 }} />
       </div>
       <div
         className={
