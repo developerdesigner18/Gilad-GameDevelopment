@@ -207,7 +207,10 @@ const Suggestion = ({
                   <i
                     className="fa-solid fa-circle-play"
                     style={{ color: "rgb(224 78 84)", marginLeft: 30 }}
-                    onClick={watchAdvertise1}
+                    onClick={() => {
+                      watchAdvertise1();
+                      alert("please watch ad");
+                    }}
                   ></i>
                 </>
               )}
@@ -239,7 +242,10 @@ const Suggestion = ({
                 {JSON.parse(localStorage.getItem("SecondAdButton")) && (
                   <i
                     class="fa-solid fa-circle-play"
-                    onClick={watchAdvertise2}
+                    onClick={() => {
+                      watchAdvertise2();
+                      alert("Watch ad for second time for reveal a word");
+                    }}
                     style={{
                       marginLeft: 30,
 

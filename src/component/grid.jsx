@@ -374,7 +374,10 @@ const Grid = ({
                   ? `setDark`
                   : `setLight`
               }
-              onClick={resetGame}
+              onClick={() => {
+                resetGame();
+                alert("Watch ad for new game");
+              }}
             >
               Play Again!
             </button>

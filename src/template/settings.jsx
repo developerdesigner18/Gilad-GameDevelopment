@@ -1,21 +1,10 @@
 import React, { Component } from "react";
-import {
-  Col,
-  Row,
-  Container,
-  Form,
-  ButtonGroup,
-  Button,
-} from "react-bootstrap";
-import Switch from "react-switch";
-
-// import { useNavigate } from "react-router-dom";
+import { Col, Row, Form } from "react-bootstrap";
 
 import "./settings.css";
 import { useNavigate } from "react-router-dom";
 
 const Settings = ({ toggle, darkModeButton, isDarkMode, mode, setMode }) => {
-  console.log(!isDarkMode);
   const navigate = useNavigate();
   return (
     <div>

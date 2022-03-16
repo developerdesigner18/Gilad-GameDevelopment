@@ -97,7 +97,10 @@ const LoseGame = ({ playAgain, resetGame, gameData }) => {
                 ? `setDark`
                 : `setLight`
             }
-            onClick={resetGame}
+            onClick={() => {
+              resetGame();
+              alert("Watch ad for new game");
+            }}
           >
             Play Again!
           </button>

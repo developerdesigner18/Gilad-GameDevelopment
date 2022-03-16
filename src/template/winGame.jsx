@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Col, Row, Container } from "react-bootstrap";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
 
 // import { useNavigate } from "react-router-dom";
 
@@ -133,7 +133,10 @@ const WinGame = ({ playAgain, resetGame, gameData }) => {
                 ? `setDark`
                 : `setLight`
             }
-            onClick={resetGame}
+            onClick={() => {
+              resetGame();
+              alert("Watch ad for new game");
+            }}
           >
             Play Again!
           </button>
