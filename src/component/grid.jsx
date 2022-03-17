@@ -13,7 +13,6 @@ import { Row, Col, Image } from "react-bootstrap";
 import WinGame from "../template/winGame";
 import LoseGame from "../template/LoseGame";
 import { useLocation, useNavigate } from "react-router-dom";
-import { StickyContainer, Sticky } from "react-sticky";
 
 const Grid = ({
   gameData,
