@@ -59,3 +59,10 @@
   color: white;
   padding: 5px;
 }
+
+@media only screen and (max-device-width: 375px) {
+  .container1Dark,
+  .container1Light {
+    padding-bottom: 48px;
+  }
+}
