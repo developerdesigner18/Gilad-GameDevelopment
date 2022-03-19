@@ -305,8 +305,12 @@ const Grid = ({
           ></i>
         </div>
       </div>
-      <div>
-        <Image src="../banner.jpg" style={{ height: 120, marginTop: 10 }} />
+      <div className="topAdHolder">
+        <Image
+          src="./banner.jpg"
+          className="adImageTop"
+          // style={{ height: 120, marginTop: 10 }}
+        />
       </div>
       {message && (
         <div className="message" style={{ marginTop: 15, width: "250px" }}>
@@ -314,7 +318,7 @@ const Grid = ({
         </div>
       )}
 
-      <div className="cube" style={{ marginTop: 20 }}>
+      <div className="cube" style={{ marginTop: 15 }}>
         {[0, 1, 2, 3, 4, 5].map((row, rowIndex) => (
           <div
             className={`cube-row ${gameData && row === gameData.rowIndex}`}
@@ -348,8 +352,12 @@ const Grid = ({
           </div>
         ))}
       </div>
-      <div>
-        <Image src="../banner.jpg" style={{ height: 120, marginTop: 10 }} />
+      <div className="bottomAdHolder">
+        <Image
+          className="adImageBottom"
+          src="./banner.jpg"
+          // style={{ height: 120, marginTop: 10 }}
+        />
       </div>
       <div
         className={

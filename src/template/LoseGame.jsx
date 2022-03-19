@@ -31,10 +31,7 @@ const LoseGame = ({ playAgain, resetGame, gameData }) => {
               marginTop: 40,
             }}
           >
-            <Image
-              src="../close.png"
-              style={{ width: 200, marginBottom: 30 }}
-            />
+            <Image src="./close.png" style={{ width: 200, marginBottom: 30 }} />
             <h2>Oops!</h2>
             <h4 style={{ fontSize: 22 }}>
               {" "}
